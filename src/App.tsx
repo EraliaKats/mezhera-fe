@@ -1,19 +1,45 @@
+import { createContext } from "react";
+import { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ActionsProxy, useRiducer } from "riduce";
 import Chat from "./components/Chat";
 import ChooseAMentor from "./components/ChooseAMentor";
 import JobBoard from "./components/JobBoard";
 import Questionnaire from "./components/Questionnaire";
+import AxeSelector from "./components/AxeSelector";
+
+const menteeData = {
+  userSubjectChoices: [] as string[],
+  subjectCount: 0 
+}
+
+export const AppContext = createContext(
+  {} as {
+    state: typeof menteeData;
+    dispatch: ReturnType<typeof useRiducer>["dispatch"];
+    actions: ActionsProxy<typeof menteeData>;
+  }
+);
+
+export function useAppContext() {
+  return useContext(AppContext);
+}
 
 function App(): JSX.Element {
+  const { state, dispatch, actions } = useRiducer(menteeData);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Questionnaire />} />
-        <Route path="/choose-a-mentor" element={<ChooseAMentor />} />
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/job-board" element={<JobBoard />} />
-      </Routes>
-    </BrowserRouter>
+    <AppContext.Provider value={{state, dispatch, actions}}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Questionnaire />} />
+          <Route path="/choose-a-mentor" element={<ChooseAMentor />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/job-board" element={<JobBoard />} />
+          <Route path="/select-accessibility" element={<AxeSelector/>} />
+        </Routes>
+      </BrowserRouter>
+    </AppContext.Provider>
   );
 }
 
