@@ -1,6 +1,5 @@
-import { useContext } from "react";
-import { AppContext, useAppContext } from "../App";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useAppContext } from "../App";
 import { makeStyles, Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
