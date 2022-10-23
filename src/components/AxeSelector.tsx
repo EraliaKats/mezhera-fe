@@ -59,6 +59,7 @@ export default function AxeSelector(): JSX.Element {
 
     return (
         <div className={classes.body}>
+            <div id="google_translate_element"></div>
             <h1 className={classes.title}>{'Accessibility preferences ?'}</h1>
             <h2 className={classes.title}>{'Please tell us which way you are most comfortable communicating with your mentor'}</h2>
             <div className={classes.selectContainer}>
