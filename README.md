@@ -1,7 +1,7 @@
 # Mezhera
 ## Financial mentorship for refugees
 
-[View the app here](https://mezhera.netlify.app/)
+[View the app here](https://mezhera-fe.vercel.app/)
 
 ## Features
 
