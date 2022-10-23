@@ -1,5 +1,5 @@
 import { Button, Card, CardActions, CardContent, makeStyles, Typography } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 const useStyles = makeStyles((theme) => {
   return ({
@@ -47,6 +47,14 @@ const useStyles = makeStyles((theme) => {
 export default function MentorCard (): JSX.Element {
   const classes = useStyles();
 
+  const handleMentorCardClick = () => {
+    swal({  
+      title: "Success!",
+      text: "Imagine you are redirected to a chatbox 👻",
+      icon: "success",
+    });
+  };
+
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -64,6 +72,7 @@ export default function MentorCard (): JSX.Element {
         <Button 
           size="small" 
           className={classes.buttonFill}
+          onClick={handleMentorCardClick}
         >
           {'Message mentor'}
         </Button>
