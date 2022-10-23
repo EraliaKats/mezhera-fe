@@ -10,7 +10,8 @@ import Homepage from "./components/Homepage";
 
 const menteeData = {
   userSubjectChoices: [] as string[],
-  subjectCount: 0 
+  subjectCount: 0, 
+  axePreference: ''
 }
 
 export const AppContext = createContext(

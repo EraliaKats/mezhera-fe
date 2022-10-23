@@ -4,3 +4,6 @@ body {
     background-color: rgb(239,239,230);
 }
 
+.swal-modal {
+    font-family: "DM sans";
+}

@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useAppContext } from "../App";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import swal from 'sweetalert';
 import { useStyles } from "../utils/useStyles";
-
 
 export default function Questionnaire(): JSX.Element {
   const classes = useStyles();
@@ -11,12 +11,21 @@ export default function Questionnaire(): JSX.Element {
   const subjectChoices = ['Investing', 'Housing & renting', 'Property market', 'Loans & credit', 'Banking & saving', 'Career advice', 'Tax'];
 
   useEffect(() => {
-    console.log(state.userSubjectChoices)
+    // console.log(state.userSubjectChoices)
   }, [state.subjectCount, state.userSubjectChoices]);
 
   const handleSubjectButtonClick = (subject: string) => {
-    dispatch(actions.userSubjectChoices.create.push(subject))
-    dispatch(actions.subjectCount.create.increment())
+    if (state.userSubjectChoices.includes(subject)){
+      swal({  
+      title: "Error!",
+      text: "You have already chosen this subject",
+      icon: "error",
+    });
+    }
+    else {
+      dispatch(actions.userSubjectChoices.create.push(subject))
+      dispatch(actions.subjectCount.create.increment())
+    }
   };
 
   const handleClearAllClick = () => {
