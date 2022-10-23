@@ -50,7 +50,7 @@ export default function MentorCard (): JSX.Element {
   return (
     <Card className={classes.root}>
       <CardContent>
-        <img src="https://picsum.photos/200/300" className={classes.image}/>
+        <img src="https://picsum.photos/200/300" className={classes.image} alt={'Mentor profile'}/>
         <Typography className={classes.mentorName}>{'Mentor name'}</Typography>
         <Typography className={classes.keyFacts}>{'Accessibility preference: Lorem ipsum'}</Typography>
         <Typography className={classes.keyFacts}>{'Key skills: Lorem ipsum, Lorem ipsum, Lorem ipsum'}</Typography>
