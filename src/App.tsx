@@ -10,7 +10,8 @@ import AxeSelector from "./components/AxeSelector";
 
 const menteeData = {
   userSubjectChoices: [] as string[],
-  subjectCount: 0 
+  subjectCount: 0, 
+  axePreference: ''
 }
 
 export const AppContext = createContext(
