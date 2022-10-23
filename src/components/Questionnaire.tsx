@@ -8,7 +8,15 @@ import { useStyles } from "../utils/useStyles";
 export default function Questionnaire(): JSX.Element {
   const classes = useStyles();
   const { state, actions, dispatch } = useAppContext();
-  const subjectChoices = ['Investing', 'Housing & renting', 'Property market', 'Loans & credit', 'Banking & saving', 'Career advice', 'Tax'];
+  const subjectChoices = [
+    "Investing",
+    "Housing & renting",
+    "Property market",
+    "Loans & credit",
+    "Banking & saving",
+    "Career advice",
+    "Tax",
+  ];
 
   useEffect(() => {
     // console.log(state.userSubjectChoices)
@@ -29,51 +37,48 @@ export default function Questionnaire(): JSX.Element {
   };
 
   const handleClearAllClick = () => {
-    dispatch(actions.subjectCount.create.reset())
+    dispatch(actions.subjectCount.create.reset());
     dispatch(actions.userSubjectChoices.create.reset());
   };
 
   return (
     <div className={classes.body}>
-      <h1 className={classes.title}>{'Which areas of finance are you looking for mentorship on ?'}</h1>
+      <h1 className={classes.title}>
+        {"Which areas of finance are you looking for mentorship on ?"}
+      </h1>
       <h2 className={classes.title}>{`${state.subjectCount}/3`}</h2>
       <div className={classes.buttonsContainer}>
         {subjectChoices.map((subject, id) => {
           return (
-            <Button 
+            <Button
               key={id}
               className={classes.button}
               variant="contained"
-              classes={{contained: classes.buttonFill}}
+              classes={{ contained: classes.buttonFill }}
               disabled={state.subjectCount === 3 ? true : false}
               onClick={() => handleSubjectButtonClick(subject)}
             >
               {subject}
             </Button>
-          )
+          );
         })}
       </div>
       <div className={classes.clearButtonContainer}>
-        <Button 
+        <Button
           className={classes.clearAllButton}
           onClick={handleClearAllClick}
         >
-          {'Clear all'}
+          {"Clear all"}
         </Button>
       </div>
       <div className={classes.nextButtonContainer}>
-        {state.subjectCount === 3 && 
-          <Button 
-            className={classes.nextButton}
-          >
-            <Link 
-              to='/select-accessibility'
-              className={classes.nextLink}
-            >
-              {'Next'}
+        {state.subjectCount === 3 && (
+          <Button className={classes.nextButton}>
+            <Link to="/select-accessibility" className={classes.nextLink}>
+              {"Next"}
             </Link>
           </Button>
-        }
+        )}
       </div>
     </div>
   );

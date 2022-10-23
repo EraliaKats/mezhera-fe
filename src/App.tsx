@@ -30,14 +30,14 @@ function App(): JSX.Element {
   const { state, dispatch, actions } = useRiducer(menteeData);
 
   return (
-    <AppContext.Provider value={{state, dispatch, actions}}>
+    <AppContext.Provider value={{ state, dispatch, actions }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/questionnaire" element={<Questionnaire />} />
           <Route path="/choose-a-mentor" element={<ChooseAMentor />} />
           <Route path="/chat" element={<Chat />} />
-          <Route path="/select-accessibility" element={<AxeSelector/>} />
+          <Route path="/select-accessibility" element={<AxeSelector />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>
