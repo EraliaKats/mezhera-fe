@@ -1,8 +1,10 @@
-// import axios from "axios";
-// import { env } from "process";
-// import { useEffect } from "react";
+import {useState} from 'react'
+import axios from "axios";
+import { env } from "process";
+import { useEffect } from "react";
 import MentorCard from "./MentorCard";
 import { makeStyles } from "@material-ui/core";
+import { MentorProfile } from "../utils/interfaces";
 
 const useStyles = makeStyles((theme) => {
   return ({
@@ -21,14 +23,16 @@ const useStyles = makeStyles((theme) => {
 
 export default function ChooseAMentor(): JSX.Element {
   const classes = useStyles();
+  const [mentorProfile, setMentorProfile] = useState<MentorProfile[]>([])
 
-  // useEffect(() => {
-  //   async function fetchUsers() {
-  //     const response = await axios.get(`${env.API_URL}/users`);
-  //     setUsers(response.data);
-  //   }
-  //   fetchUsers();
-  // }, []);
+  useEffect(() => {
+    async function fetchMentorProfile() {
+      const response = await axios.get(`http://localhost:4000/users/1/profile`);
+      setMentorProfile(response.data);
+    }
+    fetchMentorProfile();
+  }, []);
+
 
   return (
     <div>
@@ -39,5 +43,4 @@ export default function ChooseAMentor(): JSX.Element {
         <MentorCard/>
       </div>
     </div>
-  );
-}
+  )}

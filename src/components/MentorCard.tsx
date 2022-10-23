@@ -70,4 +70,4 @@ export default function MentorCard (): JSX.Element {
       </CardActions>
     </Card>
   );
-};
+}

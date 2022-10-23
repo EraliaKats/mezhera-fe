@@ -50,13 +50,12 @@ const useStyles = makeStyles((theme) => {
 });
 
 export default function AxeSelector(): JSX.Element {
-    const classes = useStyles();
-    const { state, actions, dispatch } = useAppContext();
+const classes = useStyles();
+const { state, actions, dispatch } = useAppContext();
 
-    const handleSelectorChange = (event: any) => {
-        dispatch(actions.axePreference.create.update(event.target.value));
-    };
-
+const handleSelectorChange = (event: any) => {
+    dispatch(actions.axePreference.create.update(event.target.value));
+};
     return (
         <div className={classes.body}>
             <div id="google_translate_element"></div>
