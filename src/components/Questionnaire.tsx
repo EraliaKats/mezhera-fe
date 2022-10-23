@@ -43,9 +43,8 @@ export default function Questionnaire(): JSX.Element {
 
   return (
     <div className={classes.body}>
-      <h1 className={classes.title}>
-        {"Which areas of finance are you looking for mentorship on ?"}
-      </h1>
+      <div id="google_translate_element"></div>
+      <h1 className={classes.title}>{'Which areas of finance are you looking for mentorship on ?'}</h1>
       <h2 className={classes.title}>{`${state.subjectCount}/3`}</h2>
       <div className={classes.buttonsContainer}>
         {subjectChoices.map((subject, id) => {

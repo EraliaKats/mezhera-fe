@@ -56,38 +56,37 @@ const { state, actions, dispatch } = useAppContext();
 const handleSelectorChange = (event: any) => {
     dispatch(actions.axePreference.create.update(event.target.value));
 };
-
-return (
-<div className={classes.body}>
-    <h1 className={classes.title}>{'Accessibility preferences ?'}</h1>
-    <h2 className={classes.title}>{'Please tell us which way you are most comfortable communicating with your mentor'}</h2>
-    <div className={classes.selectContainer}>
-        <FormControl className={classes.formControl}>
-            <InputLabel>Options</InputLabel>
-            <Select
-                value={state.axePreference}
-                onChange={handleSelectorChange}
-                className={classes.select}
-            >
-                <MenuItem value={'Chat'}>{'Chat'}</MenuItem>
-                <MenuItem value={'Video call'}>{'Video call'}</MenuItem>
-                <MenuItem value={'No preference'}>{'No preference'}</MenuItem>
-            </Select>
-        </FormControl>
-    </div>
-    {state.axePreference !== '' &&
-    <Button 
-        className={classes.nextButton}
-        >
-        <Link 
-            to='/choose-a-mentor'
-            className={classes.nextLink}
-        >
-            {'Next'}
-        </Link>
-        </Button>
-    }
-</div>
-);
+    return (
+        <div className={classes.body}>
+            <div id="google_translate_element"></div>
+            <h1 className={classes.title}>{'Accessibility preferences ?'}</h1>
+            <h2 className={classes.title}>{'Please tell us which way you are most comfortable communicating with your mentor'}</h2>
+            <div className={classes.selectContainer}>
+                <FormControl className={classes.formControl}>
+                    <InputLabel>Options</InputLabel>
+                    <Select
+                        value={state.axePreference}
+                        onChange={handleSelectorChange}
+                        className={classes.select}
+                    >
+                        <MenuItem value={'Chat'}>{'Chat'}</MenuItem>
+                        <MenuItem value={'Video call'}>{'Video call'}</MenuItem>
+                        <MenuItem value={'No preference'}>{'No preference'}</MenuItem>
+                    </Select>
+                </FormControl>
+            </div>
+            {state.axePreference !== '' &&
+            <Button 
+                className={classes.nextButton}
+              >
+                <Link 
+                  to='/choose-a-mentor'
+                  className={classes.nextLink}
+                >
+                  {'Next'}
+                </Link>
+              </Button>
+            }
+        </div>
+    );
 }
-
