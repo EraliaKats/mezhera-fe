@@ -1,3 +1,5 @@
+import { ActionsProxy, useRiducer, Action , RiducerDict} from "riduce";
+
 export interface UserInterface {
   user_id: string;
   first_name: string;
@@ -16,4 +18,22 @@ export interface MentorProfile {
   is_mentor: boolean;
   skill_id: string;
   skills: Array<unknown> //change unknown type
+}
+
+export interface Context {
+  state: {
+    userSubjectChoices: string[];
+    subjectCount: number;
+    axePreference: string;
+};
+dispatch: React.Dispatch<Action<unknown>>;
+actions: ActionsProxy<{
+    userSubjectChoices: string[];
+    subjectCount: number;
+    axePreference: string;
+}, {
+    userSubjectChoices: string[];
+    subjectCount: number;
+    axePreference: string;
+  }, RiducerDict<any>>
 }
