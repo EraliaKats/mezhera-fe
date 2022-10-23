@@ -7,6 +7,7 @@ import ChooseAMentor from "./components/ChooseAMentor";
 import Questionnaire from "./components/Questionnaire";
 import AxeSelector from "./components/AxeSelector";
 import Homepage from "./components/Homepage";
+import { Context } from "./utils/interfaces";
 
 const menteeData = {
   userSubjectChoices: [] as string[],
@@ -22,7 +23,7 @@ export const AppContext = createContext(
   }
 );
 
-export function useAppContext() {
+export function useAppContext(): Context {
   return useContext(AppContext);
 }
 
